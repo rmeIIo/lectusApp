@@ -204,7 +204,7 @@
 }
 
 .dropdownContent a {
-  color: var(--primary-color);
+  color: var(--gray-color);
   padding: 8px 10px;
   text-decoration: none;
   display: block;
