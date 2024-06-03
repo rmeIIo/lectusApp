@@ -320,7 +320,7 @@
   max-width: 550px;
 }
 
-.pageText h1, h2 {
+.pageText h1, .pageText h2 {
   font-family: 'Staatliches', Helvetica, sans-serif;
   font-size: 64px;
   font-weight: 400;
@@ -345,8 +345,7 @@
   left: 70%;
 }
 
-#page2 {
-  min-height: 100vh;
+#page2, #page3 {
   background: var(--purple-background);
   display: flex;
   flex-direction: column;
@@ -369,28 +368,40 @@
 
 .lastRelease {
   margin-top: 20%;
+}
+
+.mostWanted {
+  margin-top: 10%;
+}
+
+.lastRelease, .mostWanted {
   display: flex;
 }
 
-.lastRelease h3 {
+.lastRelease h3, .mostWanted h3 {
   font-family: 'Staatliches', Helvetica, sans-serif;
-  font-size: 40px;
+  font-size: 32px;
   color: #FFF;
   letter-spacing: 2px;
 }
 
-.releaseContainer {
-  width: 100vw;
-  display: flex;
+.releaseContainer, .mostWantedContainer {
+  width: 80vw;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
   justify-content: center;
-  gap: 10%;
-  margin: 10% 0;
+  margin-top: 5%;
+  margin-left: 7%;
+}
+
+.mostWantedContainer {
+  margin-bottom: 10%;
 }
 
 .book {
-  width: 200px;
-  height: 290px;
-  border-radius: 24px;
+  width: 120px;
+  height: 178px;
+  border-radius: 12px;
   cursor: pointer;
   overflow: hidden;
 }
@@ -400,4 +411,102 @@
   height: 100%;
   object-fit: cover;
   border-radius: inherit;
+}
+
+@media screen and (max-width: 1024px) {
+  .pageText {
+    margin-left: 100px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .pageText h1, .pageText h2 {
+    font-size: 48px;
+  }
+
+  .pageText p {
+    width: 300px;
+  }
+
+  .shelf {
+    top: 10%;
+    left: 70%;
+  }
+
+  .books {
+    top: 27%;
+    left: 65%;
+  }
+
+  .releaseContainer, .mostWantedContainer {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .book {
+    margin-bottom: 10%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #page1 {
+    justify-content: center;
+  }
+
+  .pageText {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10% 0;
+  }
+
+  .pageText p {
+    text-align: center;
+  }
+
+  .glitters {
+    width: 80%;
+    top: 27%;
+    left: 40px;
+  }
+
+  .circle1 {
+    display: none;
+  }
+
+  .books {
+    display: none;
+  }
+
+  .glasses {
+    top: 60%;
+    left: 20%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .glasses {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .pageText h1, .pageText h2 {
+    font-size: 32px;
+  }
+
+  .pageText h2 {
+    text-align: center;
+  }
+
+  .releaseContainer, .mostWantedContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 0;
+  }
+
+  .lastRelease h3, .mostWanted h3 {
+    font-size: 20px;
+  }
 }
