@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
+@import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -7,8 +9,11 @@
   --primary-color: #4f1fe4;
   --secondary-color: #efefff;
   --gray-color: #4C4C4C;
+  --dark-purple-color: #34335E;
   --tertiary-color: #7C7CF9;
+  --purple-background: #34335F;
   font-family: 'Poppins', Helvetica, sans-serif;
+  overflow-x: hidden;
 }
 
 .container {
@@ -45,6 +50,7 @@
   text-transform: uppercase;
   line-height: 30px;
   text-align: center;
+  height: 1.3em;
 }
 
 .navContainer {
@@ -292,4 +298,106 @@
   .coolinput {
     display: none;
   }
+}
+
+/* HOMEPAGE */
+
+#page1 {
+  display: flex;
+  min-height: 50vh;
+}
+
+.glitters {
+  position: absolute;
+  z-index: 0;
+  top: 140px;
+  left: 100px;
+}
+
+.pageText {
+  z-index: 1;
+  margin-left: 223px;
+  max-width: 550px;
+}
+
+.pageText h1, h2 {
+  font-family: 'Staatliches', Helvetica, sans-serif;
+  font-size: 64px;
+  font-weight: 400;
+}
+
+.pageText h1 {
+  color: var(--primary-color);
+}
+
+.pageText h2 {
+  color: var(--dark-purple-color);
+}
+
+.pageText p {
+  color: var(--dark-purple-color);
+}
+
+.shelf {
+  position: absolute;
+  z-index: 0;
+  top: 15%;
+  left: 70%;
+}
+
+#page2 {
+  min-height: 100vh;
+  background: var(--purple-background);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.glasses {
+  position: absolute;
+  top: 65%;
+  left: 10%;
+}
+
+.books {
+  z-index: 1;
+  position: absolute;
+  top: 30%;
+  left: 64%;
+}
+
+.lastRelease {
+  margin-top: 20%;
+  display: flex;
+}
+
+.lastRelease h3 {
+  font-family: 'Staatliches', Helvetica, sans-serif;
+  font-size: 40px;
+  color: #FFF;
+  letter-spacing: 2px;
+}
+
+.releaseContainer {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  gap: 10%;
+  margin: 10% 0;
+}
+
+.book {
+  width: 200px;
+  height: 290px;
+  border-radius: 24px;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.book img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
 }
