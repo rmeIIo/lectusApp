@@ -1,0 +1,295 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  --primary-color: #4f1fe4;
+  --secondary-color: #efefff;
+  --gray-color: #4C4C4C;
+  --tertiary-color: #7C7CF9;
+  font-family: 'Poppins', Helvetica, sans-serif;
+}
+
+.container {
+  background-color: var(--secondary-color);
+}
+
+/* NAVBAR */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.lectusIcon {
+  width: 100px;
+  height: 170px;
+  background-color: var(--primary-color);
+  margin-left: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.lectusIcon img {
+  width: 80px;
+  color: #fff;
+}
+
+.lectusIcon span {
+  color: #fff;
+  font-size: 24px;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 30px;
+  text-align: center;
+}
+
+.navContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.coolinput {
+  display: flex;
+  flex-direction: column;
+  width: 290px;
+}
+
+.coolinput label.text {
+  font-size: 0.75rem;
+  color: var(--primary-color);
+  font-weight: 700;
+  position: relative;
+  top: 0.5rem;
+  margin: 0 0 0 7px;
+  padding: 0 3px;
+  background: var(--secondary-color);
+  width: fit-content;
+}
+
+.coolinput input[type="text"].input {
+  padding: 11px 10px;
+  font-size: 0.75rem;
+  border: 2px var(--primary-color) solid;
+  border-radius: 5px;
+  background: var(--secondary-color);
+}
+
+.coolinput input[type="text"].input:focus {
+  outline: none;
+}
+
+.navItems {
+  display: flex;
+  justify-content: space-between;
+  gap: 70px;
+  list-style-type: none;
+  margin: 30px 70px;
+}
+
+.navItems a {
+  display: flex;
+  align-items: center;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  text-decoration: none;
+  color: var(--gray-color);
+  cursor: pointer;
+}
+
+.loginButton {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 45px;
+  height: 45px;
+  margin-top: 17px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition-duration: .3s;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+  background-color: var(--primary-color);
+}
+
+.loginSign {
+  width: 100%;
+  transition-duration: .3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loginSign svg {
+  width: 17px;
+}
+
+.loginSign svg path {
+  fill: white;
+}
+
+.loginText {
+  position: absolute;
+  right: 0%;
+  width: 0%;
+  opacity: 0;
+  color: white;
+  font-size: 1.2em;
+  font-weight: 600;
+  transition-duration: .3s;
+}
+
+.loginButton:hover {
+  width: 125px;
+  border-radius: 40px;
+  transition-duration: .3s;
+}
+
+.loginButton:hover .loginSign {
+  width: 30%;
+  transition-duration: .3s;
+  padding-left: 20px;
+}
+
+.loginButton:hover .loginText {
+  opacity: 1;
+  width: 70%;
+  transition-duration: .3s;
+  padding-right: 10px;
+}
+
+.loginButton:active {
+  transform: translate(2px ,2px);
+}
+
+.navDropdown {
+  display: none;
+  position: relative;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-top: 17px;
+}
+
+.dropButton {
+  background-color: var(--primary-color);
+  color: #FFF;
+  padding: 10px 15px;
+  font-size: 15px;
+  font-weight: bold;
+  border: 2px solid transparent;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: 0.1s;
+}
+
+.dropdownContent {
+  display: none;
+  font-size: 13px;
+  position: absolute;
+  z-index: 1;
+  min-width: 200px;
+  background-color: var(--secondary-color);
+  border: 2px solid var(--primary-color);
+  border-radius: 0px 15px 15px 15px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  transition: 0.1s;
+}
+
+.dropdownContent a {
+  color: var(--primary-color);
+  padding: 8px 10px;
+  text-decoration: none;
+  display: block;
+  transition: 0.1s;
+}
+
+.dropdownContent a:hover {
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+.dropdownContent a:focus {
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+.dropdownContent #top:hover {
+  border-radius: 0px 13px 0px 0px;
+}
+
+.dropdownContent #bottom:hover {
+  border-radius: 0px 0px 13px 13px;
+}
+
+.navDropdown:hover button {
+  border-radius: 15px 15px 0px 0px;
+}
+
+.navDropdown:hover .dropdownContent {
+  display: block;
+}
+
+@media only screen and (max-width: 1240px) {
+  .navItems {
+    display: none;
+  }
+
+  .navDropdown {
+    display: block;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+
+  .coolinput {
+    width: 190px;
+  }
+
+  .dropdownContent {
+    min-width: 150px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .loginButton {
+    transition-duration: 0s; 
+  }
+
+  .loginSign {
+    transition-duration: 0s; 
+  }
+
+  .loginText {
+    transition-duration: 0s; 
+  }
+
+  .loginButton:hover {
+    width: 45px; 
+    border-radius: 50%;
+  }
+
+  .loginButton:hover .loginSign {
+    width: 100%; 
+    padding-left: 0px; 
+  }
+
+  .loginButton:hover .loginText {
+    opacity: 0; 
+    width: 0%; 
+    padding-right: 0px;
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 480px) {
+  .coolinput {
+    display: none;
+  }
+}
