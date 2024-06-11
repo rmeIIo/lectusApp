@@ -2,16 +2,19 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+:root {
   --primary-color: #4f1fe4;
   --secondary-color: #efefff;
   --gray-color: #4C4C4C;
   --dark-purple-color: #34335E;
   --tertiary-color: #7C7CF9;
   --purple-background: #34335F;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   font-family: 'Poppins', Helvetica, sans-serif;
   overflow-x: hidden;
 }
@@ -121,7 +124,6 @@
   border-radius: 50%;
   cursor: pointer;
   position: relative;
-  overflow: hidden;
   transition-duration: .3s;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
   background-color: var(--primary-color);
@@ -180,11 +182,11 @@
 .navDropdown {
   display: none;
   position: relative;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Poppins', Helvetica, sans-serif;
   margin-top: 17px;
 }
 
-.dropButton {
+.dropButton, .dropProfileButton {
   background-color: var(--primary-color);
   color: #FFF;
   padding: 10px 15px;
@@ -194,13 +196,34 @@
   border-radius: 15px;
   cursor: pointer;
   transition: 0.1s;
+  overflow: hidden;
+}
+
+.profileDropdown {
+  display: block;
+  margin-top: 20px;
+}
+
+.dropProfileButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 24px;
+  width: 40px;
+  height: 40px;
+}
+
+.dropProfileButton img {
+  min-width: 40px;
+  min-height: 40px;
+  overflow: hidden;
 }
 
 .dropdownContent {
   display: none;
   font-size: 13px;
   position: absolute;
-  z-index: 1;
+  z-index: 10;
   min-width: 200px;
   background-color: var(--secondary-color);
   border: 2px solid var(--primary-color);
@@ -235,13 +258,14 @@
   border-radius: 0px 0px 13px 13px;
 }
 
-.navDropdown:hover button {
+.navDropdown:hover button, .profileDropdown:hover button {
   border-radius: 15px 15px 0px 0px;
 }
 
-.navDropdown:hover .dropdownContent {
+.navDropdown:hover .dropdownContent, .profileDropdown:hover .dropdownContent {
   display: block;
 }
+
 
 @media only screen and (max-width: 1240px) {
   .navItems {
@@ -486,7 +510,7 @@
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 426px) {
   .pageText h1, .pageText h2 {
     font-size: 32px;
   }
@@ -597,4 +621,137 @@ footer {
   .links {
     display: block;
   }
+}
+
+/*LOGIN PAGE*/
+@keyframes rotate {
+  100% {
+    background-position: 15% 50%;
+  }
+}
+
+.loginContainer {
+  display: grid;
+  place-items: center;
+  margin: 0;
+  height: 100vh;
+  padding: 0 24px;
+  background-color: var(--primary-color);
+  background-image: url(./assets/backgroundLogin.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #fff;
+  animation: rotate 6s infinite alternate linear;
+}
+
+.loginContainer:after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgb(0 0 0 / 35%);
+}
+
+.loginCard {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  margin: 0 20px;
+  padding: 70px 30px 44px;
+  border-radius: 20px;
+  background: rgb(24 21 36 / 66%);
+  backdrop-filter: blur(10px);
+  text-align: center;
+}
+
+@media (width >= 448px) {
+  .loginCard {
+    margin: 0;
+    width: 70%;
+    min-width: 400px;
+  }
+}
+
+@media (width >= 500px) {
+  .loginContainer {
+    padding: 0;
+  }
+}
+
+@media (width >= 628px) {
+  .loginCard {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0 44px;
+    width: 50%;
+    max-width: 500px;
+    min-width: auto;
+    display: flex;
+    border-radius: 0;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+.loginCard > h2 {
+  font-size: 36px;
+  font-weight: 400;
+  margin: 0 0 12px;
+}
+
+.loginCard > h3 {
+  color: rgb(255 255 255 / 38%);
+  margin: 0 0 48px;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.loginForm {
+  width: 100%;
+  margin: 0;
+  display: grid;
+  gap: 16px;
+}
+
+.loginForm > :is(input, button) {
+  width: 100%;
+  height: 56px;
+  border-radius: 6px;
+  border: 0;
+}
+
+.loginForm > input {
+  color: rgb(255 255 255 / 96%);
+  background: rgb(255 255 255 / 8%);
+  font-family: inherit;
+  font-size: 16px;
+  padding: 0 16px;
+}
+
+.loginForm > input::placeholder {
+  color: rgb(255 255 255 / 38%);
+}
+
+.loginForm > button {
+  cursor: pointer;
+  width: 100%;
+  height: 56px;
+  padding: 0 16px;
+  background: var(--primary-color);
+  color: #ffffff;
+  border: 0;
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: 400;
+  text-align: center;
+  transition: all 0.375s;
+}
+
+.loginForm > a {
+  color: var(--secondary-color);
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  margin-bottom: 30px;
 }
